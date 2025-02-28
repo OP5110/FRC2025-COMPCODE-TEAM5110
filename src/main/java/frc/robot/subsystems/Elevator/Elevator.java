@@ -32,7 +32,7 @@ public class Elevator extends SubsystemBase {
     public static final double CORAL_PICKUP = 0;        // **Picking up Coral from the ground**
     public static final double CORAL_LOW_BRANCH = 0;   // **Scoring on Low Reef Branch**
     public static final double CORAL_MID_BRANCH = 29.33;   // **Scoring on Mid Reef Branch**
-    public static final double CORAL_HIGH_BRANCH = 76.79;  // **Scoring on High Reef Branch**
+    public static final double CORAL_HIGH_BRANCH = 76.3;  // **Scoring on High Reef Branch**
     public static final double CORAL_BASE_TROUGH = 87.91;  // **Scoring in Base Trough**
 
     // **Algae Positions**

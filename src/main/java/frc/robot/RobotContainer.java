@@ -216,17 +216,17 @@ public class RobotContainer
 
     //the button used to be pov left
     Constants.operatorController.axisGreaterThan(1, 0.1)
-    .onTrue(m_angle.runAlgae(0.1))
+    .onTrue(m_angle.runAlgae(0.3))
     .onFalse(m_angle.runAlgae(0.03));
     
     //the button used to be pov right
     Constants.operatorController.axisLessThan(1, -0.1)
     .whileTrue(Commands.run(() -> {
         if (convLimitSwitch.get()) { // Limit switch NOT pressed (returns true)
-            m_angle.runAlgae(-0.1).schedule();
+            m_angle.runAlgae(-0.3).schedule();
         }
     }, m_angle))
-    .onFalse(m_angle.runAlgae(0));
+    .onFalse(m_angle.runAlgae(.03));
 
 
 // Constants.operatorController
@@ -254,11 +254,11 @@ public class RobotContainer
 
 
 
-    Constants.operatorController.axisGreaterThan(5, 0.1) // Assuming axis 1 is right stick Y
+    Constants.operatorController.axisGreaterThan(5, -0.1) // Assuming axis 1 is right stick Y
     .onTrue(m_elevator.runElevator(0.3))
     .onFalse(m_elevator.runElevator(0.02));
 
-    Constants.operatorController.axisLessThan(5, -0.1)
+    Constants.operatorController.axisLessThan(5, 0.1)
     .onTrue(m_elevator.runElevator(-0.2))
     .onFalse(m_elevator.runElevator(0.02));
 
@@ -271,19 +271,23 @@ public class RobotContainer
     // }, m_elevator))
     // .onFalse(m_elevator.runElevator(.02));
 
-    // Coral, RB & RT
+    // Elevator Positioning
     Constants.operatorController.a().whileTrue(m_elevator.moveToCoralLowBranch());
 
     Constants.operatorController.b().whileTrue(m_elevator.moveToCoralMidBranch());
 
     Constants.operatorController.x().whileTrue(m_elevator.moveToCoralHighBranch());    
 
-    Constants.operatorController.y().whileTrue(m_elevator.moveToCoralBaseTrough());
+    //Constants.operatorController.y().whileTrue(m_elevator.moveToCoralBaseTrough());
 
      // Constants.operatorController.start().onTrue(new autoShoot(m_shooter));
     Constants.operatorController.rightTrigger(.5).whileTrue(m_CoralIntake.runCoral(.3))
      .whileFalse(m_CoralIntake.runCoral(0));
 
+    // Coral, Auto Shoot
+    Constants.operatorController.back().whileTrue(m_CoralIntake.reverseCoral());
+
+    Constants.operatorController.start().whileTrue(m_CoralIntake.shootCoral());
 
     // Coral, RB & RT
     Constants.operatorController.rightBumper().whileTrue(m_CoralIntake.runCoral(.3))

@@ -9,23 +9,11 @@
           "data": {
             "pathName": "New Path"
           }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "moveToCoralMidBranch"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": null
-          }
         }
       ]
     }
   },
-  "resetOdom": true,
+  "resetOdom": false,
   "folder": null,
   "choreoAuto": false
 }
